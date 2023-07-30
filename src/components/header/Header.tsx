@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { Outlet, NavLink, Link } from "react-router-dom";
 import { default as Logo } from "../../assets/logo.svg";
+import { createRipple } from "../../utils/effects";
 import "./header.scss";
 
 interface ActiveClassProps {
@@ -17,7 +18,7 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <div className="header-wrapper">
+        <div className="header-wrapper container">
           <div className="logo-wrapper">
             <img
               className="logo-image"
@@ -38,8 +39,8 @@ const Header = () => {
                   return (
                     <li key={pageLink} className="nav-item">
                       <NavLink
+                        onClick={createRipple}
                         className={clsx(setActiveClass, "nav-link")}
-                        // className="nav-link"
                         to={pageLink === "home" ? "/" : pageLink}
                       >
                         {page}
@@ -51,6 +52,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
+      <div className="margin-indent" />
       <Outlet />
     </>
   );

@@ -1,0 +1,92 @@
+@import "../../../styles/variables";
+
+.class-list-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 2rem;
+
+    .class-list-selector {
+
+        .class-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+
+            .class-list-item {
+                border-left: 2px solid $secondary-border-color;
+                border-top: 2px solid $secondary-border-color;
+                background: rgb(2,0,45);
+
+                &:hover {
+                    background-color: $secondary-border-color-hover;
+                }
+
+                &:first-child {
+                    border-start-start-radius: 7px;
+                }
+
+                &:last-child {
+                    border-bottom: 2px solid $secondary-border-color;
+                    border-end-start-radius: 7px;
+                }
+
+                .class-item {
+                    all: unset;
+                    width: 100%;
+                    padding-block: .6rem;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    gap: 1rem;
+
+                    .class-logo {
+                        margin-left: 1rem;
+                    }
+
+                    .class-button-text {
+                        letter-spacing: .7px;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .class-description-wrapper {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid $secondary-border-color;
+        border-start-end-radius: 7px;
+        border-end-end-radius: 7px;
+        background-size: cover;
+        background-image: linear-gradient(rgba(0 0 0 / 60%), rgba(0 0 0 / 15%)), url("../../../assets/backgrounds/background.jpeg");
+
+        .class-description-text {
+            margin-right: 7rem;
+            margin-left: 2rem;
+            position: relative;
+            z-index: 1;
+
+            .class-description-title {
+                font-size: 2.5rem;
+                text-shadow: 1px 1px 6px black;
+            }
+
+            .class-description {
+                font-size: 1.1rem;
+                letter-spacing: .3px;
+                text-shadow: 1px 1px 6px black;
+            }
+        }
+
+        .class-parallax {
+            position: absolute;
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 1));
+            right: 2rem;
+            top: 2rem;
+        }
+    }
+}

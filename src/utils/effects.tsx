@@ -20,8 +20,8 @@ export const createRipple = (e: React.MouseEvent<HTMLElement>) => {
 
 export const createParallax = (e: React.MouseEvent) => {
   document.querySelectorAll(".parallax-enabled").forEach((element) => {
-    const axisX = (window.innerWidth - e.pageX * 3) / 90;
-    const axisY = (window.innerHeight - e.pageY * 3) / 90;
+    const axisX = (window.innerWidth - e.pageX * 1.5) / 90;
+    const axisY = (window.innerHeight - e.pageY * 1.5) / 90;
 
     (
       element as HTMLElement

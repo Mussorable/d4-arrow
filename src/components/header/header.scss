@@ -6,6 +6,7 @@
     width: 100%;
     background-color: $primary;
     min-height: 64px;
+    position: fixed;
 
     .header-wrapper {
         display: flex;
@@ -15,6 +16,10 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+
+            .logo-image {
+                filter: drop-shadow(0 0 5px rgba(255, 255, 255, .3));
+            }
 
             .logo-title {
                 font-size: 2rem;
@@ -47,6 +52,9 @@
                         padding-inline: 1rem;
                         opacity: 0.8;
                         transition: 0.2s;
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 5px;
 
                         &:hover {
                             opacity: 1;
@@ -56,6 +64,26 @@
                         &:active {
                             translate: 1px 1px;
                         }
+
+                        &.active {
+                            color: $secondary;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 0;
+                            height: 2px;
+                            background-color: $secondary;
+                            transition: width .3s ease;
+                        }
+
+                        &.active::after {
+                            margin: 0;
+                            width: 100%;
+                        }
                     }
                 }
             }
@@ -63,3 +91,6 @@
     }
 }
 
+.margin-indent {
+    min-height: 68px;
+}

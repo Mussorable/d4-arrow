@@ -124,7 +124,6 @@ const Classes = () => {
             </div>
             {currentClass && (
               <img
-                // width="200"
                 height="500"
                 className="class-parallax parallax-enabled"
                 src={currentClass.imageURLHero}

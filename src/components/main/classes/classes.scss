@@ -18,9 +18,23 @@
                 border-left: 2px solid $secondary-border-color;
                 border-top: 2px solid $secondary-border-color;
                 background: rgb(2,0,45);
+                transition: .3s;
 
                 &:hover {
                     background-color: $secondary-border-color-hover;
+                    filter:brightness(130%);
+
+                    .class-item {
+
+                        .class-logo {
+                            filter: drop-shadow(0 0 5px rgba(255, 255, 255, .3))
+                                    saturate(1.75);
+                        }
+
+                        .class-button-text {
+                            color: $secondary;
+                        }
+                    }
                 }
 
                 &:first-child {

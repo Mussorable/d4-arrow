@@ -14,13 +14,19 @@ import { default as sorcererHero } from "../../../assets/classes/sorcerer-prlx.p
 import { default as necromancerHero } from "../../../assets/classes/necromancer-prlx.png";
 import { default as druidHero } from "../../../assets/classes/druid-prlx.png";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface HeroClass {
   title: string;
   imageURL: string;
   imageURLHero: string;
   description: string;
+}
+
+interface Skill {
+  title: string;
+  description: string;
+  imageURL: string;
 }
 
 const classes: Array<HeroClass> = [
@@ -63,6 +69,20 @@ const classes: Array<HeroClass> = [
 
 const Classes = () => {
   const [currentClass, setCurrentClass] = useState<HeroClass>(classes[0]);
+  const [classSkills, setClassSkills] = useState<any>();
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      const response = await fetch("http://localhost:8080/skills");
+      const skills = await response.json();
+
+      console.log(skills);
+
+      setClassSkills(skills);
+    };
+
+    fetchSkills();
+  }, []);
 
   const handleClassClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const currentClass = classes.find(
@@ -131,6 +151,12 @@ const Classes = () => {
               />
             )}
           </div>
+        </div>
+        <div className="class-skills-wrapper">
+          {classSkills &&
+            classSkills.map((skill: Skill) => (
+              <img key={skill.title} src={skill.imageURL} />
+            ))}
         </div>
       </div>
     </main>

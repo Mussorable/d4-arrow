@@ -55,6 +55,7 @@
                     align-items: center;
                     justify-content: start;
                     gap: 1rem;
+                    transition: .4s;
 
                     .class-logo {
                         margin-left: 1rem;
@@ -63,6 +64,20 @@
                     .class-button-text {
                         letter-spacing: .7px;
                         font-size: 1.2rem;
+                    }
+
+                    &.active {
+                        background-color: $third;
+                        filter:brightness(130%);
+
+                        .class-logo {
+                            filter: drop-shadow(0 0 5px rgba(255, 255, 255, .3))
+                                    saturate(1.75);
+                        }
+
+                        .class-button-text {
+                            color: $secondary;
+                        }
                     }
                 }
             }
@@ -101,6 +116,28 @@
             filter: drop-shadow(0 0 20px rgba(0, 0, 0, 1));
             right: 2rem;
             top: 2rem;
+        }
+    }
+}
+
+.class-skills-wrapper {
+    margin-top: 5rem;
+    width: 100%;
+    height: 50em;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid $secondary-border-color;
+    border-radius: 7px;
+    scrollbar-width: 0;
+
+    .skills-map {        
+        position: absolute;
+        background-image: url('../../../assets/backgrounds/bg-skills-map.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
         }
     }
 }
